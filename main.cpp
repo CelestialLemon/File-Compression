@@ -28,6 +28,6 @@ int main()
     //std::cout << "Encoded message  : " << encodedMessage << '\n';
 
     std::cout << "\n\n";
-    std::cout << "Size of original message " << 8 * message.length() << "bits\n";
-    std::cout << "Size of encoded message " << encodedMessage.length() << "bits\n";
+    std::cout << "Size of original message " << 8 * message.length() << " bits\n";
+    std::cout << "Size of encoded message " << encodedMessage.length() << " bits\n";
 }
