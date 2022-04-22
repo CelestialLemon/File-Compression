@@ -4,21 +4,16 @@
 int main()
 {
     auto byteStream = ReadFileDataRaw("./res/clw-bmp.bmp");
-    std::string message = "";
-
-    for(byte b : byteStream)
-    {
-        message += b;
-    }
+    std::string message(byteStream.begin(), byteStream.end());
 
     HuffNode* root = CreateMinHeap(message);
 
     std::vector<SymbolCodePair> symbolTable;
     FindSymbolTable(root, "", symbolTable);
 
-    for(auto item : symbolTable)
+    for(auto scp : symbolTable)
     {
-        std::cout << "Symbol : " << item.key << " code " << item.code << "\n";
+        std::cout << "Symbol : " << scp.key << " code " << scp.code << "\n";
     }
 
     std::string encodedMessage = EncodeMessage(message, symbolTable);
