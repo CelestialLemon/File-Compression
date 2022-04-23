@@ -1,5 +1,11 @@
 #include "File.h"
 
+bool fileExists(const std::string& filepath)
+{
+    std::ifstream infile(filepath);
+    return infile.good();
+}
+
 std::vector<byte> ReadFileDataRaw(std::string filepath)
 {
     std::ifstream readStream(filepath, std::ios::in | std::ios::binary);

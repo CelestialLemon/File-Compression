@@ -6,6 +6,7 @@
 #include <unordered_map>
 
 typedef char byte;
+bool fileExists(const std::string& filepath);
 std::vector<byte> ReadFileDataRaw(std::string filepath);
 void WriteFileDataRaw(std::string filepath, const std::vector<byte>& buffer);
 

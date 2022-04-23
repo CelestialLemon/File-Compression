@@ -1,28 +1,45 @@
 #include "Huffman.h"
 #include "File.h"
 
-int main()
+enum OperationType {
+    ENCODE,
+    DECODE
+};
+
+enum CompressionAlgorithm {
+    HUFFMAN
+};
+
+int main(int argc, char** argv)
 {
-    auto byteStream = ReadFileDataRaw("./res/clw-bmp.bmp");
-    std::string message(byteStream.begin(), byteStream.end());
+    OperationType operationType = OperationType::ENCODE;
+    CompressionAlgorithm compressionAlgorithm = CompressionAlgorithm::HUFFMAN;
 
-    HuffNode* root = CreateMinHeap(message);
+    if(std::string(argv[1]) == "encode") operationType == OperationType::ENCODE;
+    else if(std::string(argv[1]) == "decode") operationType == OperationType::DECODE;
 
-    std::vector<SymbolCodePair> symbolTable;
-    FindSymbolTable(root, "", symbolTable);
 
-    for(auto scp : symbolTable)
+    if(std::string(argv[2]) == "huffman") compressionAlgorithm == CompressionAlgorithm::HUFFMAN;
+
+    std::string inputFilepath = std::string(argv[3]);
+    std::string outputFilepath = std::string(argv[4]);
+
+    if(fileExists(inputFilepath))
     {
-        std::cout << "Symbol : " << scp.key << " code " << scp.code << "\n";
+        switch(operationType)
+        {
+            case OperationType::ENCODE:
+                HuffmanCompression(inputFilepath, outputFilepath);
+            break;
+
+            case OperationType::DECODE:
+            break;
+        }
     }
-
-    std::string encodedMessage = EncodeMessage(message, symbolTable);
-
-    std::cout << "\n\n";
-    //std::cout << "Orignial message : " << message << '\n';
-    //std::cout << "Encoded message  : " << encodedMessage << '\n';
-
-    std::cout << "\n\n";
-    std::cout << "Size of original message " << 8 * message.length() << " bits\n";
-    std::cout << "Size of encoded message " << encodedMessage.length() << " bits\n";
+    else
+    {
+        std::cout << "ERROR! Invalid filepath";
+    }
+    
+    
 }

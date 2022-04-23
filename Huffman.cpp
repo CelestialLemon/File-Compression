@@ -119,3 +119,25 @@ std::string EncodeMessage(const std::string& message, const std::vector<SymbolCo
 
     return output;
 }
+
+void HuffmanCoding(const std::string& inputFilepath, const std::string& outputFilepath)
+{
+    auto byteStream = ReadFileDataRaw(filepath);
+    std::string message(byteStream.begin(), byteStream.end());
+
+    HuffNode* root = CreateMinHeap(message);
+
+    std::vector<SymbolCodePair> symbolTable;
+    FindSymbolTable(root, "", symbolTable);
+
+
+    std::string encodedMessage = EncodeMessage(message, symbolTable);
+
+    std::cout << "\n\n";
+    //std::cout << "Orignial message : " << message << '\n';
+    //std::cout << "Encoded message  : " << encodedMessage << '\n';
+
+    std::cout << "\n\n";
+    std::cout << "Size of original message " << 8 * message.length() << " bits\n";
+    std::cout << "Size of encoded message " << encodedMessage.length() << " bits\n";
+}
