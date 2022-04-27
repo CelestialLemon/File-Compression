@@ -45,4 +45,5 @@ void FindSymbolTable(HuffNode* root, std::string prevCode,std::vector<SymbolCode
 std::string EncodeMessage(const std::string& message, const std::vector<SymbolCodePair>& symbolTable);
 void SaveHuffmanData(const std::string& filepath, const std::vector<SymbolCodePair>& symbolTable, std::string& encodedMessage);
 void HuffmanCompression(const std::string& inputFilepath, const std::string& outputFilepath);
+void LoadHuffmanData(const std::string& filepath, std::vector<SymbolCodePair>& symbolTable, int& encodedMessageLength,std::string& encodedMessage);
 void HuffmanDecompression(const std::string& inputFilepath, const std::string& outputFilepath);
