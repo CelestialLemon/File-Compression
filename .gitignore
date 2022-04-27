@@ -2,3 +2,7 @@
 [Bb]uild/
 /.vscode/
 /cmd/
+
+/test.cpp
+/test.exe
+/test.txt
