@@ -1,3 +1,7 @@
+#pragma once
+
+#include "File.h"
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -39,5 +43,6 @@ HuffNode* CreateMinHeap(const std::string& message);
 bool isLeafNode(HuffNode* node);
 void FindSymbolTable(HuffNode* root, std::string prevCode,std::vector<SymbolCodePair>& symbolTable);
 std::string EncodeMessage(const std::string& message, const std::vector<SymbolCodePair>& symbolTable);
+void SaveHuffmanData(const std::string& filepath, const std::vector<SymbolCodePair>& symbolTable, std::string& encodedMessage);
 void HuffmanCompression(const std::string& inputFilepath, const std::string& outputFilepath);
 void HuffmanDecompression(const std::string& inputFilepath, const std::string& outputFilepath);

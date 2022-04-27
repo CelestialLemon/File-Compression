@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -9,8 +11,6 @@ typedef char byte;
 bool fileExists(const std::string& filepath);
 std::vector<byte> ReadFileDataRaw(std::string filepath);
 void WriteFileDataRaw(std::string filepath, const std::vector<byte>& buffer);
-
-
 
 /*
 -128 > -127

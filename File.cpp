@@ -34,7 +34,6 @@ bool CompareFiles(std::string filepath1, std::string filepath2)
     }
     return true;
 }
-
 /*
 -128 > -127
 -1 > 0
