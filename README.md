@@ -29,4 +29,14 @@ LemonArchive decode huffman <input_filepath> <output_filepath>
   adding all the chars to get the complete decdoed string. Then convert this to an array of chars (bytes) and write it to an output file.
   
   ## Performance
+  The app performs well and supports all file extensions. It performs best on files that don't have varied bytes. So text-files, log files etc. have higher compression ratio than images and videos.
+  
+  Some benchmarks for the compression ratio are provided below
+  
+  - Text File (.txt) ```15.6 MB -> 8.22 MB```
+  - Image File (.bmp) ```1.67 MB -> 1.42 MB```
+  - Image File (.jpg) ```1.82 MB -> 1.83 MB```
+  - Document (.pdf) ```762 KB -> 760 KB```
+  - Document (.docx) ```3.42 MB -> 3.41 MB```
+  - Wonderdraft save file (.wdm) ```5.15 MB -> 4.02 MB```
   
